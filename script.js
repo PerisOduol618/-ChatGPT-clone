@@ -20,6 +20,7 @@ function loader(element) {
 
 function typeText( element, text){
   let index = 0;
+  
   let inteval = setInterval(() => {
     if (index < text.length) {
       element.innerHTML += text.chartAt(index);
@@ -69,7 +70,7 @@ const handleSubmit = async (e) => {
 
   // generate bot chatstripe
   const uniqueId = generateUniqueId();
-  chatContainer.innerHTML += chatstripe(true,"",uniqueId);
+  chatContainer.innerHTML += chatstripe(true, "",uniqueId);
 
   // put the new message in view
   chatContainer.scrollTop = chatContainer.scrollHeight;
