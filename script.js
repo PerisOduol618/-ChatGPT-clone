@@ -68,11 +68,11 @@ const handleSubmit = async (e) => {
   form.reset();
 
   // generate bot chatstripe
-  const uniqueId = generateUniqueId()
+  const uniqueId = generateUniqueId();
   chatContainer.innerHTML += chatstripe(true,"",uniqueId);
 
   // put the new message in view
-  chatContainer.scrollTop = chatContainer.scrollTop;
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 
   // fetch the newly created div
   const messageDiv = document.getElementById(uniqueId);
@@ -82,9 +82,9 @@ const handleSubmit = async (e) => {
 }
 
 
-from.addEventListener('submit', handleSubmit);
+form.addEventListener('submit', handleSubmit);
 // enter button
-from.addEventListener('keyup', (e) =>{
+form.addEventListener('keyup', (e) =>{
   if (e.keyCode === 13) {
     handleSubmit(e);
   }
