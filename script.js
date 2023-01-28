@@ -79,6 +79,13 @@ const handleSubmit = async (e) => {
 
   // turn on the loader
   loader(messageDiv);
-
-
 }
+
+
+from.addEventListener('submit', handleSubmit);
+// enter button
+from.addEventListener('keyup', (e) =>{
+  if (e.keyCode === 13) {
+    handleSubmit(e);
+  }
+})
