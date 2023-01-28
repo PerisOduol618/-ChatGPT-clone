@@ -55,3 +55,30 @@ function chatstripe  (isAi, value, uniqueId) {
     `
   )
 }
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  // generate user's chatstripe
+  chatContainer.innerHTML += chatstripe(false, data.get('prompt'));
+
+  // clear textarea input
+  form.reset();
+
+  // generate bot chatstripe
+  const uniqueId = generateUniqueId()
+  chatContainer.innerHTML += chatstripe(true,"",uniqueId);
+
+  // put the new message in view
+  chatContainer.scrollTop = chatContainer.scrollTop;
+
+  // fetch the newly created div
+  const messageDiv = document.getElementById(uniqueId);
+
+  // turn on the loader
+  loader(messageDiv);
+
+
+}
